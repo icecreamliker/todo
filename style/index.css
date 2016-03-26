@@ -1,0 +1,132 @@
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  font-family: "Helvetica Neue", Helvetica, arial, "Microsoft Yahei", "微软雅黑", "宋体", sans-serif;
+  font-size: 12px;
+}
+ul,
+ol,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+input {
+  outline: none;
+  border: none;
+}
+.wrapper {
+  width: 800px;
+  height: 600px;
+  background-color: #f6f6f6;
+  display: flex;
+}
+.wrapper .menu {
+  flex: 1;
+  width: 80px;
+  min-width: 80px;
+  max-width: 80px;
+}
+.wrapper .con {
+  flex: 1;
+}
+.menu {
+  background-color: #4b6c8b;
+  border-right: 1px solid #34506b;
+  -webkit-user-select: none;
+}
+.menu ul li {
+  position: relative;
+  height: 68px;
+  line-height: 68px;
+  border-top: 1px solid #537797;
+  border-bottom: 1px solid #3c5674;
+  color: #f6fafe;
+  text-align: center;
+  cursor: pointer;
+}
+.menu ul li:hover {
+  background-color: #54789a;
+}
+.menu ul li.avatar {
+  cursor: default;
+  -webkit-app-region: drag;
+}
+.menu ul li.avatar i {
+  display: block;
+  margin: 9px auto;
+  width: 50px;
+  height: 50px;
+  background: url(../assets/avatar.jpg) center center no-repeat;
+  background-size: 50px 50px;
+  border-radius: 50%;
+}
+.menu ul li.avatar:hover {
+  background-color: #4b6c8b;
+}
+.menu ul li.active {
+  background-color: #3d5b77;
+  border-top: 1px solid #3d5b77;
+  cursor: default;
+}
+.menu ul li.active::before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 3px;
+  height: 68px;
+  content: '';
+  background-color: #05bbec;
+}
+.con .input {
+  display: block;
+  padding-left: 18px;
+  padding-right: 18px;
+  width: 100%;
+  height: 68px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #34506b;
+  background-color: #3d5b77;
+  font-size: 14px;
+  color: #dfebf6;
+}
+.con .tasks {
+  width: 100%;
+}
+.con .tasks li {
+  position: relative;
+  margin-left: 18px;
+  height: 48px;
+  line-height: 48px;
+  padding-left: 10px;
+  font-size: 13px;
+  background-color: #fff;
+  border-bottom: 1px solid #e5eef8;
+}
+.con .tasks li::before {
+  position: absolute;
+  display: block;
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: #61c6cf;
+  border: 3px solid #f6f6f6;
+  left: -7px;
+  top: 18px;
+  -webkit-user-select: none;
+}
+.con .tasks li.warn::before {
+  background-color: #ffa800;
+}
+.con .tasks li.high::before {
+  background-color: #eb3e3e;
+}
+.con .tasks li:hover {
+  background-color: #f6fafe;
+}

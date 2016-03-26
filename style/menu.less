@@ -1,0 +1,56 @@
+.menu {
+  background-color: #4b6c8b;
+  border-right: 1px solid #34506b;
+  -webkit-user-select: none;
+
+  ul {
+    li {
+      position: relative;
+      height: 68px;
+      line-height: 68px;
+      border-top: 1px solid #537797;
+      border-bottom: 1px solid #3c5674;
+      color: #f6fafe;
+      text-align: center;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #54789a;
+      }
+
+      &.avatar {
+        cursor: default;
+        -webkit-app-region: drag;
+        i {
+          display: block;
+          margin: 9px auto;
+          width: 50px;
+          height: 50px;
+          background: url(../assets/avatar.jpg) center center no-repeat;
+          background-size: 50px 50px;
+          border-radius: 50%;
+        }
+        &:hover {
+          background-color: #4b6c8b;
+        }
+      }
+
+      &.active {
+        background-color: #3d5b77;
+        border-top: 1px solid #3d5b77;
+        cursor: default;
+        &::before {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 3px;
+          height: 68px;
+          content: '';
+          background-color: #05bbec;
+        }
+
+      }
+
+    }
+  }
+}

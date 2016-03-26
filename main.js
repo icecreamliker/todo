@@ -3,25 +3,45 @@
 const electron = require('electron');
 // Module to control application life.
 const app = electron.app;
+const Menu = electron.Menu;
+const Tray = electron.Tray;
 // Module to create native browser window.
 const BrowserWindow = electron.BrowserWindow;
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
+let appIcon = null;
 
 function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 800,
-    height: 600
+    height: 600,
+    resizable: false,
+    // transparent: true,
+    // titleBarStyle: 'hidden-inset' // hidden
+    frame: false
   });
+
+  // Tray
+  appIcon = new Tray(__dirname + '/assets/logo.png');
+  var contextMenu = Menu.buildFromTemplate([{
+    label: 'Quit',
+    accelerator: 'Command+Q',
+    click: function() {
+      app.quit();
+    }
+  }]);
+  appIcon.setToolTip('todo list');
+  appIcon.setTitle('title new')
+  appIcon.setContextMenu(contextMenu);
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function() {
@@ -36,6 +56,7 @@ function createWindow() {
 // initialization and is ready to create browser windows.
 app.on('ready', createWindow);
 
+// app.dock.setBadge('1');
 app.dock.setIcon(__dirname + '/assets/logo.png');
 
 // Quit when all windows are closed.

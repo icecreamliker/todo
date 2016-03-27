@@ -62,7 +62,7 @@ input {
   margin: 9px auto;
   width: 50px;
   height: 50px;
-  background: url(../assets/avatar.jpg) center center no-repeat;
+  background: url('/assets/avatar.jpg') center center no-repeat;
   background-size: 50px 50px;
   border-radius: 50%;
 }
@@ -129,4 +129,16 @@ input {
 }
 .con .tasks li:hover {
   background-color: #f6fafe;
+}
+.con .tasks li .date {
+  background-color: #f6fafe;
+  color: #95aac0;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  padding: 0 8px;
+  position: absolute;
+  right: 8px;
+  top: 14px;
+  border-radius: 3px;
 }

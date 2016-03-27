@@ -11,7 +11,7 @@ const BrowserWindow = electron.BrowserWindow;
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
-let appIcon = null;
+let tray = null;
 
 function createWindow() {
   // Create the browser window.
@@ -21,11 +21,14 @@ function createWindow() {
     resizable: false,
     // transparent: true,
     // titleBarStyle: 'hidden-inset' // hidden
-    frame: false
+    frame: false,
+    webPreferences: {
+      nodeIntegration: false
+    }
   });
 
   // Tray
-  appIcon = new Tray(__dirname + '/assets/logo.png');
+  tray = new Tray(__dirname + '/assets/logo.png');
   var contextMenu = Menu.buildFromTemplate([{
     label: 'Quit',
     accelerator: 'Command+Q',
@@ -33,9 +36,9 @@ function createWindow() {
       app.quit();
     }
   }]);
-  appIcon.setToolTip('todo list');
-  appIcon.setTitle('title new')
-  appIcon.setContextMenu(contextMenu);
+  tray.setToolTip('todo list');
+  //tray.setTitle('title new')
+  tray.setContextMenu(contextMenu);
 
   // and load the index.html of the app.
   mainWindow.loadURL('file://' + __dirname + '/index.html');
